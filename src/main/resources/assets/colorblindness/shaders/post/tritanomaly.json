@@ -1,0 +1,31 @@
+{
+    "targets": [
+            "swap"
+    ],
+    "passes": [
+        {
+            "name": "colorblindness:color_shift",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "uniforms": [
+                {
+                    "name": "RedMatrix",
+                    "values": [ 0.96667, 0.03333, 0.0 ]
+                },
+                {
+                    "name": "GreenMatrix",
+                    "values": [ 0.0, 0.73333, 0.26667 ]
+                },
+                {
+                    "name": "BlueMatrix",
+                    "values": [ 0.0, 0.18333, 0.81667 ]
+                }
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}

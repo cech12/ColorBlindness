@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+issueTrackerURL="https://github.com/cech12/ExtendedMushrooms/issues"
+license="The MIT License (MIT)"
+[[mods]]
+    modId="colorblindness"
+    version="${file.jarVersion}"
+    displayName="Color Blindness"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/colorblindness"
+    authors="Cech12"
+    description='''
+    This mod adds potion effects for each color blindness variant.
+    '''
+[[dependencies.extendedmushrooms]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.20,37)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.extendedmushrooms]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
