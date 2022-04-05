@@ -20,12 +20,12 @@ public class ColorEffect extends Effect {
     }
 
     @Override
-    public void performEffect(@Nonnull LivingEntity entityLivingBaseIn, int amplifier) {
+    public void applyEffectTick(@Nonnull LivingEntity entityLivingBaseIn, int amplifier) {
         //do nothing than rendering
     }
 
     @Override
-    public boolean isReady(int duration, int amplifier) {
+    public boolean isDurationEffectTick(int duration, int amplifier) {
         return false;
     }
 

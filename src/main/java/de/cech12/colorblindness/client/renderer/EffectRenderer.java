@@ -47,7 +47,7 @@ public class EffectRenderer {
     private static ShaderGroup createShaderGroup(ResourceLocation location) {
         try {
             Minecraft mc = Minecraft.getInstance();
-            return new ShaderGroup(mc.getTextureManager(), mc.getResourceManager(), mc.getFramebuffer(), location);
+            return new ShaderGroup(mc.getTextureManager(), mc.getResourceManager(), mc.getMainRenderTarget(), location);
         } catch (IOException ioexception) {
             LOGGER.warn("Failed to load shader: {}", location, ioexception);
         } catch (JsonSyntaxException jsonsyntaxexception) {
@@ -94,21 +94,21 @@ public class EffectRenderer {
             makeColorShaders();
 
             ShaderGroup activeShader = null;
-            if (player.isPotionActive(ColorBlindness.ACHROMATOMALY.get())) {
+            if (player.hasEffect(ColorBlindness.ACHROMATOMALY.get())) {
                 activeShader = achromatomalyShader;
-            } else if (player.isPotionActive(ColorBlindness.ACHROMATOPSIA.get())) {
+            } else if (player.hasEffect(ColorBlindness.ACHROMATOPSIA.get())) {
                 activeShader = achromatopsiaShader;
-            } else if (player.isPotionActive(ColorBlindness.DEUTERANOMALY.get())) {
+            } else if (player.hasEffect(ColorBlindness.DEUTERANOMALY.get())) {
                 activeShader = deuteranomalyShader;
-            } else if (player.isPotionActive(ColorBlindness.DEUTERANOPIA.get())) {
+            } else if (player.hasEffect(ColorBlindness.DEUTERANOPIA.get())) {
                 activeShader = deuteranopiaShader;
-            } else if (player.isPotionActive(ColorBlindness.PROTANOMALY.get())) {
+            } else if (player.hasEffect(ColorBlindness.PROTANOMALY.get())) {
                 activeShader = protanomalyShader;
-            } else if (player.isPotionActive(ColorBlindness.PROTANOPIA.get())) {
+            } else if (player.hasEffect(ColorBlindness.PROTANOPIA.get())) {
                 activeShader = protanopiaShader;
-            } else if (player.isPotionActive(ColorBlindness.TRITANOMALY.get())) {
+            } else if (player.hasEffect(ColorBlindness.TRITANOMALY.get())) {
                 activeShader = tritanomalyShader;
-            } else if (player.isPotionActive(ColorBlindness.TRITANOPIA.get())) {
+            } else if (player.hasEffect(ColorBlindness.TRITANOPIA.get())) {
                 activeShader = tritanopiaShader;
             }
 
@@ -119,8 +119,8 @@ public class EffectRenderer {
                     lastHeight = 0;
                 }
                 updateShaderGroupSize(activeShader);
-                activeShader.render(event.getPartialTicks());
-                Minecraft.getInstance().getFramebuffer().bindFramebuffer(false);
+                activeShader.process(event.getPartialTicks());
+                Minecraft.getInstance().getMainRenderTarget().bindWrite(false);
             }
         }
     }
@@ -128,12 +128,12 @@ public class EffectRenderer {
     public static void updateShaderGroupSize(ShaderGroup shaderGroup) {
         if (shaderGroup != null) {
             Minecraft mc = Minecraft.getInstance();
-            int width = mc.getMainWindow().getFramebufferWidth();
-            int height = mc.getMainWindow().getFramebufferHeight();
+            int width = mc.getWindow().getWidth();
+            int height = mc.getWindow().getHeight();
             if (width != lastWidth || height != lastHeight) {
                 lastWidth = width;
                 lastHeight = height;
-                shaderGroup.createBindFramebuffers(width, height);
+                shaderGroup.resize(width, height);
             }
         }
     }
