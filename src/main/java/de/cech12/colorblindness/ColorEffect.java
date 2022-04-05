@@ -1,15 +1,15 @@
 package de.cech12.colorblindness;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 
 import javax.annotation.Nonnull;
 
-public class ColorEffect extends Effect {
+public class ColorEffect extends MobEffect {
 
     protected ColorEffect(int red, int green, int blue) {
-        super(EffectType.NEUTRAL, getColorFromRGB(red, green, blue));
+        super(MobEffectCategory.NEUTRAL, getColorFromRGB(red, green, blue));
     }
 
     static private int getColorFromRGB(int red, int green, int blue) {
@@ -20,14 +20,13 @@ public class ColorEffect extends Effect {
     }
 
     @Override
-    public void performEffect(@Nonnull LivingEntity entityLivingBaseIn, int amplifier) {
+    public void applyEffectTick(@Nonnull LivingEntity entityLivingBaseIn, int amplifier) {
         //do nothing than rendering
     }
 
     @Override
-    public boolean isReady(int duration, int amplifier) {
+    public boolean isDurationEffectTick(int duration, int amplifier) {
         return false;
     }
-
 
 }
