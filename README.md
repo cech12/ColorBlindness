@@ -24,3 +24,21 @@ ColorBlindness is a **Minecraft Forge** mod. The purpose is to provide color bli
 Type the following line to give you the Achromatopsia effect for 10 seconds.
 
     /effect give YourName colorblindness:achromatopsia 10
+
+## Import to your project
+
+[![](https://jitpack.io/v/cech12/colorblindness.svg)](https://jitpack.io/#cech12/colorblindness)
+
+Add the following to your `build.gradle` file:
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation fg.deobf("com.github.cech12:colorblindness:${project.colorblindness_version}")
+}
+```
+
+Replace `${project.colorblindness_version}` with the version of ColorBlindness that you want to use. The actual versions can be found on the Github Releases page.
