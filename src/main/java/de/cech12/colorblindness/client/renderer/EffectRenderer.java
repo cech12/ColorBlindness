@@ -85,7 +85,7 @@ public class EffectRenderer {
 
     @SubscribeEvent
     public static void onRender(TickEvent.RenderTickEvent event) {
-        if (event == null) {
+        if (event == null || event.phase != TickEvent.Phase.END) {
             return;
         }
 
