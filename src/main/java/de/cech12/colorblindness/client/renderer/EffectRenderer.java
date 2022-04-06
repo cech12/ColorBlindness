@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
@@ -84,8 +84,8 @@ public class EffectRenderer {
     }
 
     @SubscribeEvent
-    public static void onRender(RenderWorldLastEvent event) {
-        if (event == null) {
+    public static void onRender(TickEvent.RenderTickEvent event) {
+        if (event == null || event.phase != TickEvent.Phase.END) {
             return;
         }
 
@@ -119,7 +119,7 @@ public class EffectRenderer {
                     lastHeight = 0;
                 }
                 updateShaderGroupSize(activeShader);
-                activeShader.process(event.getPartialTicks());
+                activeShader.process(event.renderTickTime);
                 Minecraft.getInstance().getMainRenderTarget().bindWrite(false);
             }
         }
