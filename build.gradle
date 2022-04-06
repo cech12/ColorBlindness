@@ -165,7 +165,7 @@ publishing {
             artifact jar
             artifact sourcesJar
 
-            groupId = 'de.cech12'
+            groupId = 'com.github.cech12'
             artifactId project.archivesBaseName
             version project.version
 
