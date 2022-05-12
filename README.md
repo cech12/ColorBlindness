@@ -28,7 +28,7 @@ Type the following line to give you the Achromatopsia effect for 10 seconds.
 
 ## Import to your project
 
-[![](https://jitpack.io/v/cech12/colorblindness.svg)](https://jitpack.io/#cech12/colorblindness)
+[![](https://jitpack.io/v/cech12/ColorBlindness.svg)](https://jitpack.io/#cech12/ColorBlindness)
 
 Add the following to your `build.gradle` file:
 
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation fg.deobf("com.github.cech12:colorblindness:${project.colorblindness_version}")
+    implementation fg.deobf("com.github.cech12:ColorBlindness:${project.colorblindness_version}")
 }
 ```
 
