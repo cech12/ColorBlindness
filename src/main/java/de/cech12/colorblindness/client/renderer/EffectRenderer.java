@@ -7,6 +7,7 @@ import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
@@ -83,7 +84,7 @@ public class EffectRenderer {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onRender(TickEvent.RenderTickEvent event) {
         if (event == null || event.phase != TickEvent.Phase.END) {
             return;

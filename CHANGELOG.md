@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Forge Recommended Versioning](https://mcforge.readthedocs.io/en/latest/conventions/versioning/).
 
+## [1.16.5-0.2.0.1] - 2022-07-20
+### Fixed
+- incompatibility with mods that are using TickEvent.RenderTickEvent like EnhancedVisuals (thanks to TsEndereBrine for the report)
+
 ## [1.16.5-0.2.0.0] - 2022-04-06
 ### Fixed
 - GUI and Hand were not affected by the shaders
