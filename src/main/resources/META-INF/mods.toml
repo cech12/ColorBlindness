@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[40,)"
-issueTrackerURL="https://github.com/cech12/ExtendedMushrooms/issues"
+issueTrackerURL="https://github.com/cech12/ColorBlindness/issues"
 license="The MIT License (MIT)"
 [[mods]]
     modId="colorblindness"
