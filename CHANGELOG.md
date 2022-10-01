@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Forge Recommended Versioning](https://mcforge.readthedocs.io/en/latest/conventions/versioning/).
 
+## [1.18.2-1.0.0.0] - 2022-10-01
+### Changed
+- reworked effect icons to make them more distinguishable #5
+
 ## [1.18.2-0.2.0.2] - 2022-09-20
 ### Fixed
 - fixed startup crash on dedicated server (thanks to Darkosto & Mrbysco) #6 #7
