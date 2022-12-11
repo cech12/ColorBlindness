@@ -41,12 +41,23 @@ jobs:
     uses: cech12/MinecraftModActions/.github/workflows/publish-curseforge.yml@main
     with:
       java-version: 17
+      curseforge-id: 606170
+      game-versions: |
+        1.18.2
+      release-type: release
     secrets:
       curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
-#  trigger-jitpack:
-#    needs: publish-github
-#    if: startsWith(github.ref, 'refs/tags/')
-#    name: Trigger Jitpack
-#    uses: cech12/MinecraftModActions/.github/workflows/trigger-jitpack.yml@main
-#    secrets:
-#      github-token: ${{ secrets.GITHUB_TOKEN }}
+  publish-modrinth:
+    needs: publish-github
+    if: startsWith(github.ref, 'refs/tags/')
+    name: Publish Modrinth
+    uses: cech12/MinecraftModActions/.github/workflows/publish-modrinth.yml@main
+    with:
+      java-version: 17
+      modrinth-id: OLtvxS9Q
+      game-versions: |
+        1.18.2
+      release-type: release
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+      modrinth-token: ${{ secrets.MODRINTH_API_KEY }}
