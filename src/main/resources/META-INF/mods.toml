@@ -11,13 +11,13 @@ license="The MIT License (MIT)"
     description='''
     This mod adds potion effects for each color blindness variant.
     '''
-[[dependencies.extendedmushrooms]]
+[[dependencies.colorblindness]]
     modId="forge"
     mandatory=true
     versionRange="[41.0.64,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.extendedmushrooms]]
+[[dependencies.colorblindness]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.19,1.20)"
