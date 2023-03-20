@@ -2,7 +2,7 @@
 
 [![Curseforge](http://cf.way2muchnoise.eu/full_colorblindness_downloads(0D0D0D-F16436-fff-010101-fff).svg)](https://www.curseforge.com/minecraft/mc-mods/colorblindness)
 [![Curseforge](http://cf.way2muchnoise.eu/versions/For%20MC_colorblindness_all(0D0D0D-F16436-fff-010101).svg)](https://www.curseforge.com/minecraft/mc-mods/colorblindness/files)
-[![Modrinth](https://modrinth-utils.vercel.app/api/badge/downloads?id=OLtvxS9Q&logo=true)](https://modrinth.com/mod/colorblindness)
+[![Modrinth](https://img.shields.io/modrinth/dt/OLtvxS9Q?label=Modrinth&logo=modrinth)](https://modrinth.com/mod/colorblindness)
 [![CI/CD](https://github.com/cech12/ColorBlindness/actions/workflows/cicd-workflow.yml/badge.svg)](https://github.com/cech12/ColorBlindness/actions/workflows/cicd-workflow.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/cech12/colorblindness/badge)](https://www.codefactor.io/repository/github/cech12/colorblindness)
 [![gitlocalized ](https://gitlocalize.com/repo/8143/whole_project/badge.svg)](https://gitlocalize.com/repo/8143/?utm_source=badge)
