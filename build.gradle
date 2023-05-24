@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
     }
 }
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
@@ -56,7 +56,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                colorblindness {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -78,7 +78,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                colorblindness {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -103,7 +103,7 @@ minecraft {
             args '--mod', 'colorblindness', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                colorblindness {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
