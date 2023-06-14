@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [ "*" ]
-    tags: ["1.19*"]
+    tags: ["1.20*"]
   pull_request:
     branches: [ "*" ]
 
@@ -50,11 +50,7 @@ jobs:
       java-version: 17
       curseforge-id: 606170
       game-versions: |
-        1.19
-        1.19.1
-        1.19.2
-        1.19.3
-        1.19.4
+        1.20.1
       release-type: release
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -68,11 +64,7 @@ jobs:
       java-version: 17
       modrinth-id: OLtvxS9Q
       game-versions: |
-        1.19
-        1.19.1
-        1.19.2
-        1.19.3
-        1.19.4
+        1.20.1
       release-type: release
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
