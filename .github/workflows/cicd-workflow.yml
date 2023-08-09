@@ -45,6 +45,9 @@ jobs:
       game-versions: |
         1.20.1
       release-type: release
+      loaders: |
+        neoforge
+        forge
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
       curseforge-token: ${{ secrets.CURSEFORGE_API_KEY }}
@@ -59,6 +62,9 @@ jobs:
       game-versions: |
         1.20.1
       release-type: release
+      loaders: |
+        neoforge
+        forge
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
       modrinth-token: ${{ secrets.MODRINTH_API_KEY }}
