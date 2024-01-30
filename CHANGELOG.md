@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Forge Recommended Versioning](https://mcforge.readthedocs.io/en/latest/conventions/versioning/).
 
+## [1.20.4-3.0.0.2] - 2024-01-30
+### Fixed
+- Another fix for jar building in JitPack
+
 ## [1.20.4-3.0.0.1] - 2024-01-30
 ### Fixed
 - Jitpack publishing didn't work correctly
