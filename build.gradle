@@ -5,6 +5,7 @@ plugins {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     version "$project.minecraft_version-$project.mod_version"
 
