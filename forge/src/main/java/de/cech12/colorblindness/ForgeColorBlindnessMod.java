@@ -8,12 +8,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod("colorblindness")
-public class ColorBlindness {
+@Mod(Constants.MOD_ID)
+public class ForgeColorBlindnessMod {
 
-    public static final String MOD_ID = "colorblindness";
-
-    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MOD_ID);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, Constants.MOD_ID);
 
     public static final RegistryObject<MobEffect> ACHROMATOMALY = EFFECTS.register("achromatomaly", () -> new ColorEffect(100, 100, 100));
     public static final RegistryObject<MobEffect> ACHROMATOPSIA = EFFECTS.register("achromatopsia", () -> new ColorEffect(56, 56, 56));
@@ -24,7 +22,7 @@ public class ColorBlindness {
     public static final RegistryObject<MobEffect> TRITANOMALY = EFFECTS.register("tritanomaly", () -> new ColorEffect(0, 0, 159));
     public static final RegistryObject<MobEffect> TRITANOPIA = EFFECTS.register("tritanopia", () -> new ColorEffect(0, 0, 216));
 
-    public ColorBlindness() {
+    public ForgeColorBlindnessMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         EFFECTS.register(modEventBus);
     }

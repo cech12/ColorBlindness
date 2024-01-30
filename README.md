@@ -34,14 +34,32 @@ Type the following line to give you the Achromatopsia effect for 10 seconds.
 
 Add the following to your `build.gradle` file:
 
+### since 1.20.4-3.0.0.0
+
 ```groovy
 repositories {
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation fg.deobf("com.github.cech12:ColorBlindness:${project.colorblindness_version}")
+    implementation fg.deobf("com.github.cech12:ColorBlindness:${loader}:${colorblindness_version}")
 }
 ```
 
-Replace `${project.colorblindness_version}` with the version of ColorBlindness that you want to use. The actual versions can be found on the Github Releases page.
+Replace `${loader}` with the loader (`forge` or `neoforge`) you want to use.
+
+Replace `${colorblindness_version}` with the version of ColorBlindness that you want to use. The actual versions can be found on the Github Releases page.
+
+### before 1.20.4-3.0.0.0
+
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation fg.deobf("com.github.cech12:ColorBlindness:${colorblindness_version}")
+}
+```
+
+Replace `${colorblindness_version}` with the version of ColorBlindness that you want to use. The actual versions can be found on the Github Releases page.
