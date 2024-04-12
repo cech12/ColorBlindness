@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Forge Recommended Versioning](https://mcforge.readthedocs.io/en/latest/conventions/versioning/).
 
+## [1.20.4-3.1.0.0] - 2024-04-12
+### Added
+- add Fabric (>=0.96.11+1.20.4) support (Fabric, Quilt)
+
+### Changed
+- some renaming and reordering in the shader files to support Fabric
+
 ## [1.20.4-3.0.0.2] - 2024-01-30
 ### Fixed
 - Another fix for jar building in JitPack

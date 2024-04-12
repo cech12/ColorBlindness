@@ -4,7 +4,7 @@
     ],
     "passes": [
         {
-            "name": "colorblindness:color_shift",
+            "name": "colorblindness_color_shift",
             "intarget": "minecraft:main",
             "outtarget": "swap",
             "uniforms": [

@@ -5,7 +5,7 @@
         "dstrgb": "zero"
     },
     "vertex": "sobel",
-    "fragment": "colorblindness:color_shift",
+    "fragment": "colorblindness_color_shift",
     "attributes": [ "Position" ],
     "samplers": [
         { "name": "DiffuseSampler" }
