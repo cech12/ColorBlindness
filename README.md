@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/github/license/cech12/ColorBlindness)](http://opensource.org/licenses/MIT)
 [![](https://img.shields.io/discord/752506676719910963.svg?style=flat&color=informational&logo=discord&label=Discord)](https://discord.gg/gRUFH5t)
 
-ColorBlindness is a **Minecraft Forge** mod. The purpose is to provide color blindness potion effects for other mods to add their own potions or items with color blindness effects.
+ColorBlindness is a Minecraft mod (Forge, NeoForge, Fabric, Quilt). The purpose is to provide color blindness potion effects for other mods to add their own potions or items with color blindness effects.
 
 ## Effects
 
