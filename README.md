@@ -46,7 +46,7 @@ dependencies {
 }
 ```
 
-Replace `${loader}` with the loader (`forge` or `neoforge`) you want to use.
+Replace `${loader}` with the loader (`forge`, `neoforge` or `fabric`) you want to use.
 
 Replace `${colorblindness_version}` with the version of ColorBlindness that you want to use. The actual versions can be found on the Github Releases page.
 
