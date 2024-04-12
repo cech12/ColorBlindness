@@ -2,7 +2,6 @@ package de.cech12.colorblindness.client;
 
 import com.google.gson.JsonSyntaxException;
 import de.cech12.colorblindness.Constants;
-import de.cech12.colorblindness.platform.Services;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.PostChain;
@@ -48,21 +47,21 @@ public class EffectRendererHelper {
             makeColorShaders();
 
             PostChain activeShader = null;
-            if (player.hasEffect(Services.REGISTRY.getAchromatomalyEffect())) {
+            if (player.hasEffect(Constants.ACHROMATOMALY.get())) {
                 activeShader = achromatomalyShader;
-            } else if (player.hasEffect(Services.REGISTRY.getAchromatopsiaEffect())) {
+            } else if (player.hasEffect(Constants.ACHROMATOPSIA.get())) {
                 activeShader = achromatopsiaShader;
-            } else if (player.hasEffect(Services.REGISTRY.getDeuteranomalyEffect())) {
+            } else if (player.hasEffect(Constants.DEUTERANOMALY.get())) {
                 activeShader = deuteranomalyShader;
-            } else if (player.hasEffect(Services.REGISTRY.getDeuteranopiaEffect())) {
+            } else if (player.hasEffect(Constants.DEUTERANOPIA.get())) {
                 activeShader = deuteranopiaShader;
-            } else if (player.hasEffect(Services.REGISTRY.getProtanomalyEffect())) {
+            } else if (player.hasEffect(Constants.PROTANOMALY.get())) {
                 activeShader = protanomalyShader;
-            } else if (player.hasEffect(Services.REGISTRY.getProtanopiaEffect())) {
+            } else if (player.hasEffect(Constants.PROTANOPIA.get())) {
                 activeShader = protanopiaShader;
-            } else if (player.hasEffect(Services.REGISTRY.getTritanomalyEffect())) {
+            } else if (player.hasEffect(Constants.TRITANOMALY.get())) {
                 activeShader = tritanomalyShader;
-            } else if (player.hasEffect(Services.REGISTRY.getTritanopiaEffect())) {
+            } else if (player.hasEffect(Constants.TRITANOPIA.get())) {
                 activeShader = tritanopiaShader;
             }
 

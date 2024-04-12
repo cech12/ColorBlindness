@@ -2,7 +2,6 @@ package de.cech12.colorblindness.platform;
 
 import de.cech12.colorblindness.Constants;
 import de.cech12.colorblindness.platform.services.IPlatformHelper;
-import de.cech12.colorblindness.platform.services.IRegistryHelper;
 
 import java.util.ServiceLoader;
 
@@ -15,8 +14,6 @@ public class Services {
 
     /** Platform instance */
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
-    /** Registry instance */
-    public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
 
     /**
      * This code is used to load a service for the current environment. Your implementation of the service must be defined
