@@ -11,6 +11,10 @@
 
 ColorBlindness is a Minecraft mod (Forge, NeoForge, Fabric, Quilt). The purpose is to provide color blindness potion effects for other mods to add their own potions or items with color blindness effects.
 
+The Fabric / Quilt version needs the following mods:
+
+- Fabric API ([Github](https://github.com/FabricMC/fabric), [Curseforge](https://www.curseforge.com/minecraft/mc-mods/fabric-api), [Modrinth](https://modrinth.com/mod/fabric-api))
+
 ## Effects
 
 - **Achromatomaly**: Color weakness
