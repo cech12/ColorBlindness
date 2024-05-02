@@ -4,18 +4,18 @@ import de.cech12.colorblindness.client.EffectRendererHelper;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RenderFrameEvent;
 
-@Mod.EventBusSubscriber(Dist.CLIENT)
+@EventBusSubscriber(Dist.CLIENT)
 public class NeoForgeEffectRenderer {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onRender(TickEvent.RenderTickEvent event) {
-        if (event == null || event.phase != TickEvent.Phase.END) {
+    public static void onRender(RenderFrameEvent.Post event) {
+        if (event == null) {
             return;
         }
-        EffectRendererHelper.renderColorBlindnessEffect(event.renderTickTime);
+        EffectRendererHelper.renderColorBlindnessEffect(event.getPartialTick());
     }
 
 }

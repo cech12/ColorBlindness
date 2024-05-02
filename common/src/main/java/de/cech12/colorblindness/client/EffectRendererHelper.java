@@ -5,6 +5,7 @@ import de.cech12.colorblindness.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.PostChain;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -47,21 +48,21 @@ public class EffectRendererHelper {
             makeColorShaders();
 
             PostChain activeShader = null;
-            if (player.hasEffect(Constants.ACHROMATOMALY.get())) {
+            if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get()))) {
                 activeShader = achromatomalyShader;
-            } else if (player.hasEffect(Constants.ACHROMATOPSIA.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOPSIA.get()))) {
                 activeShader = achromatopsiaShader;
-            } else if (player.hasEffect(Constants.DEUTERANOMALY.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOMALY.get()))) {
                 activeShader = deuteranomalyShader;
-            } else if (player.hasEffect(Constants.DEUTERANOPIA.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOPIA.get()))) {
                 activeShader = deuteranopiaShader;
-            } else if (player.hasEffect(Constants.PROTANOMALY.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOMALY.get()))) {
                 activeShader = protanomalyShader;
-            } else if (player.hasEffect(Constants.PROTANOPIA.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOPIA.get()))) {
                 activeShader = protanopiaShader;
-            } else if (player.hasEffect(Constants.TRITANOMALY.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOMALY.get()))) {
                 activeShader = tritanomalyShader;
-            } else if (player.hasEffect(Constants.TRITANOPIA.get())) {
+            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOPIA.get()))) {
                 activeShader = tritanopiaShader;
             }
 

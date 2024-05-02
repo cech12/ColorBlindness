@@ -44,7 +44,7 @@ jobs:
       title-prefix: forge-
       curseforge-id: 606170
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         forge
@@ -62,7 +62,7 @@ jobs:
       title-prefix: forge-
       modrinth-id: OLtvxS9Q
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         forge
@@ -80,7 +80,7 @@ jobs:
       title-prefix: neoforge-
       curseforge-id: 606170
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         neoforge
@@ -98,7 +98,7 @@ jobs:
       title-prefix: neoforge-
       modrinth-id: OLtvxS9Q
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         neoforge
@@ -116,7 +116,7 @@ jobs:
       title-prefix: fabric-
       curseforge-id: 606170
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         fabric
@@ -135,7 +135,7 @@ jobs:
       title-prefix: fabric-
       modrinth-id: OLtvxS9Q
       game-versions: |
-        1.20.4
+        1.20.6
       release-type: release
       loaders: |
         fabric

@@ -9,7 +9,7 @@ subprojects {
 
     version "$project.minecraft_version-$project.mod_version"
 
-    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
     java.withSourcesJar()
     java.withJavadocJar()
 
@@ -45,18 +45,11 @@ subprojects {
             name = 'BlameJared Maven (JEI / CraftTweaker / Bookshelf)'
             url = 'https://maven.blamejared.com'
         }
-        maven { // for Jade
-            name = 'Curseforge Maven'
-            url = 'https://www.cursemaven.com'
-            content {
-                includeGroup "curse.maven"
-            }
-        }
     }
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
-        it.options.getRelease().set(17)
+        it.options.getRelease().set(21)
     }
 
     processResources {
@@ -82,7 +75,7 @@ subprojects {
                 "mod_description": project.description
         ]
 
-        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
+        filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/neoforge.mods.toml', 'META-INF/mods.toml', '*.mixins.json']) {
             expand expandProps
         }
         inputs.properties(expandProps)

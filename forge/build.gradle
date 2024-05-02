@@ -62,6 +62,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":common")
 //    annotationProcessor("org.spongepowered:mixin:0.8.6-SNAPSHOT:processor")
+
+    //temporary necessary:
+    implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
 }
 
 tasks.withType(JavaCompile).configureEach {

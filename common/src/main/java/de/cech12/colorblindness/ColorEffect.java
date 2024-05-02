@@ -1,10 +1,7 @@
 package de.cech12.colorblindness;
 
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-
-import javax.annotation.Nonnull;
 
 public class ColorEffect extends MobEffect {
 
@@ -26,11 +23,6 @@ public class ColorEffect extends MobEffect {
         rgb = (rgb << 8) + Math.max(Math.min(0xFF, green), 0);
         rgb = (rgb << 8) + Math.max(Math.min(0xFF, blue), 0);
         return rgb;
-    }
-
-    @Override
-    public void applyEffectTick(@Nonnull LivingEntity entityLivingBaseIn, int amplifier) {
-        //do nothing than rendering
     }
 
     @Override
