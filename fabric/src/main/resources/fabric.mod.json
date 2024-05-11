@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "${group}.FabricColorBlindnessMod"
+      "de.cech12.colorblindness.FabricColorBlindnessMod"
     ]
   },
   "mixins": [
