@@ -7,6 +7,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class ForgeEffectRenderer {
 
@@ -15,7 +16,7 @@ public class ForgeEffectRenderer {
         if (event == null || event.phase != TickEvent.Phase.END) {
             return;
         }
-        EffectRendererHelper.renderColorBlindnessEffect(event.renderTickTime);
+        EffectRendererHelper.renderColorBlindnessEffect(event.getTimer().getGameTimeDeltaTicks());
     }
 
 }

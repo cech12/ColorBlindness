@@ -3,7 +3,6 @@ package de.cech12.colorblindness;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 
 import java.util.function.Supplier;
@@ -23,7 +22,7 @@ public class FabricColorBlindnessMod implements ModInitializer {
     }
 
     private Supplier<MobEffect> registerMobEffect(String name, MobEffect effect) {
-        MobEffect registeredEffect = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation(Constants.MOD_ID, name), effect);
+        MobEffect registeredEffect = Registry.register(BuiltInRegistries.MOB_EFFECT, Constants.id(name), effect);
         return () -> registeredEffect;
     }
 

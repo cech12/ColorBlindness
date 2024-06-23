@@ -7,6 +7,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@SuppressWarnings("unused")
 @Mod(Constants.MOD_ID)
 public class ForgeColorBlindnessMod {
 
@@ -22,7 +23,6 @@ public class ForgeColorBlindnessMod {
         Constants.TRITANOMALY = EFFECTS.register("tritanomaly", () -> ColorEffect.TRITANOMALY);
         Constants.TRITANOPIA = EFFECTS.register("tritanopia", () -> ColorEffect.TRITANOPIA);
     }
-
 
     public ForgeColorBlindnessMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

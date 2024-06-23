@@ -16,14 +16,14 @@ public class EffectRendererHelper {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final ResourceLocation ACHROMATOMALY = new ResourceLocation(Constants.MOD_ID, "shaders/post/achromatomaly.json");
-    private static final ResourceLocation ACHROMATOPSIA = new ResourceLocation(Constants.MOD_ID, "shaders/post/achromatopsia.json");
-    private static final ResourceLocation DEUTERANOMALY = new ResourceLocation(Constants.MOD_ID, "shaders/post/deuteranomaly.json");
-    private static final ResourceLocation DEUTERANOPIA = new ResourceLocation(Constants.MOD_ID, "shaders/post/deuteranopia.json");
-    private static final ResourceLocation PROTANOMALY = new ResourceLocation(Constants.MOD_ID, "shaders/post/protanomaly.json");
-    private static final ResourceLocation PROTANOPIA = new ResourceLocation(Constants.MOD_ID, "shaders/post/protanopia.json");
-    private static final ResourceLocation TRITANOMALY = new ResourceLocation(Constants.MOD_ID, "shaders/post/tritanomaly.json");
-    private static final ResourceLocation TRITANOPIA = new ResourceLocation(Constants.MOD_ID, "shaders/post/tritanopia.json");
+    private static final ResourceLocation ACHROMATOMALY = Constants.id("shaders/post/achromatomaly.json");
+    private static final ResourceLocation ACHROMATOPSIA = Constants.id("shaders/post/achromatopsia.json");
+    private static final ResourceLocation DEUTERANOMALY = Constants.id("shaders/post/deuteranomaly.json");
+    private static final ResourceLocation DEUTERANOPIA = Constants.id("shaders/post/deuteranopia.json");
+    private static final ResourceLocation PROTANOMALY = Constants.id("shaders/post/protanomaly.json");
+    private static final ResourceLocation PROTANOPIA = Constants.id("shaders/post/protanopia.json");
+    private static final ResourceLocation TRITANOMALY = Constants.id("shaders/post/tritanomaly.json");
+    private static final ResourceLocation TRITANOPIA = Constants.id("shaders/post/tritanopia.json");
 
     private static PostChain achromatomalyShader;
     private static PostChain achromatopsiaShader;

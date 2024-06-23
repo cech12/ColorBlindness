@@ -7,6 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderFrameEvent;
 
+@SuppressWarnings("unused")
 @EventBusSubscriber(Dist.CLIENT)
 public class NeoForgeEffectRenderer {
 
@@ -15,7 +16,7 @@ public class NeoForgeEffectRenderer {
         if (event == null) {
             return;
         }
-        EffectRendererHelper.renderColorBlindnessEffect(event.getPartialTick());
+        EffectRendererHelper.renderColorBlindnessEffect(event.getPartialTick().getGameTimeDeltaTicks());
     }
 
 }

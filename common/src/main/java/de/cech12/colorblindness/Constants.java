@@ -1,5 +1,6 @@
 package de.cech12.colorblindness;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,5 +37,9 @@ public class Constants {
     public static Supplier<MobEffect> TRITANOPIA;
 
     private Constants() {}
+
+    public static ResourceLocation id(String name) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    }
 
 }
