@@ -1,0 +1,42 @@
+{
+    "targets": {
+        "swap": {}
+    },
+    "passes": [
+        {
+            "program": "colorblindness:core/colorblindness_color_shift",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "minecraft:main",
+                    "bilinear": true
+                }
+            ],
+            "output": "swap",
+            "uniforms": [
+                {
+                    "name": "RedMatrix",
+                    "values": [ 0.56667, 0.43333, 0.0 ]
+                },
+                {
+                    "name": "GreenMatrix",
+                    "values": [ 0.55833, 0.44167, 0.0 ]
+                },
+                {
+                    "name": "BlueMatrix",
+                    "values": [ 0.0, 0.24167, 0.75833 ]
+                }
+            ]
+        },
+        {
+            "program": "minecraft:post/blit",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                }
+            ],
+            "output": "minecraft:main"
+        }
+    ]
+}

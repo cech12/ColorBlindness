@@ -4,11 +4,11 @@
         "srcrgb": "one",
         "dstrgb": "zero"
     },
-    "vertex": "sobel",
-    "fragment": "colorblindness_color_shift",
+    "vertex": "minecraft:post/sobel",
+    "fragment": "colorblindness:core/colorblindness_color_shift",
     "attributes": [ "Position" ],
     "samplers": [
-        { "name": "DiffuseSampler" }
+        { "name": "InSampler" }
     ],
     "uniforms": [
         { "name": "ProjMat",     "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },

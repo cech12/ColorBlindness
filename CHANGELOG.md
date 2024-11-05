@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Forge Recommended Versioning](https://mcforge.readthedocs.io/en/latest/conventions/versioning/).
 
+## [1.21.3-4.1.0.0] - 2024-11-05
+### Changed
+- updated to Minecraft 1.21.3 (Fabric 0.107.0+1.21.3, Neoforge 21.3.10-beta, Forge 53.0.7)
+- updated Cloth Config support (16.0.141) (Fabric/Quilt)
+- updated ModMenu support (12.0.0-beta.1) (Fabric/Quilt)
+- change all shaders and post effects to be compatible with Minecraft 1.21.3 (all loaders)
+
 ## [1.21-4.0.0.0] - 2024-06-23
 ### Changed
 - Updated to Minecraft 1.21 (Fabric 0.100.3+1.21, Neoforge 21.0.29-beta, Forge 51.0.17)
