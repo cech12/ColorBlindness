@@ -1,16 +1,18 @@
-#version 110
+#version 150
 
 uniform sampler2D DiffuseSampler;
 
-varying vec2 texCoord;
-varying vec2 oneTexel;
+in vec2 texCoord;
+in vec2 oneTexel;
 
 uniform vec3 RedMatrix;
 uniform vec3 GreenMatrix;
 uniform vec3 BlueMatrix;
 
+out vec4 fragColor;
+
 void main() {
-    vec4 InTexel = texture2D(DiffuseSampler, texCoord);
+    vec4 InTexel = texture(DiffuseSampler, texCoord);
 
     // Color Matrix
     float RedValue = dot(InTexel.rgb, RedMatrix);
@@ -18,5 +20,5 @@ void main() {
     float BlueValue = dot(InTexel.rgb, BlueMatrix);
     vec3 OutColor = vec3(RedValue, GreenValue, BlueValue);
 
-    gl_FragColor = vec4(OutColor, 1.0);
+    fragColor = vec4(OutColor, 1.0);
 }
