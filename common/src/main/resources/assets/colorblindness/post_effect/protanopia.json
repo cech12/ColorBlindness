@@ -14,23 +14,25 @@
                 }
             ],
             "output": "swap",
-            "uniforms": [
-                {
-                    "name": "RedMatrix",
-                    "type": "vec3",
-                    "values": [ 0.56667, 0.43333, 0.0 ]
-                },
-                {
-                    "name": "GreenMatrix",
-                    "type": "vec3",
-                    "values": [ 0.55833, 0.44167, 0.0 ]
-                },
-                {
-                    "name": "BlueMatrix",
-                    "type": "vec3",
-                    "values": [ 0.0, 0.24167, 0.75833 ]
-                }
-            ]
+            "uniforms": {
+                "ColorblindnessColorShiftConfig": [
+                    {
+                        "name": "RedMatrix",
+                        "type": "vec3",
+                        "value": [ 0.56667, 0.43333, 0.0 ]
+                    },
+                    {
+                        "name": "GreenMatrix",
+                        "type": "vec3",
+                        "value": [ 0.55833, 0.44167, 0.0 ]
+                    },
+                    {
+                        "name": "BlueMatrix",
+                        "type": "vec3",
+                        "value": [ 0.0, 0.24167, 0.75833 ]
+                    }
+                ]
+            }
         },
         {
             "vertex_shader": "minecraft:post/blit",
@@ -41,13 +43,15 @@
                     "target": "swap"
                 }
             ],
-            "uniforms": [
-                {
-                    "name": "ColorModulate",
-                    "type": "vec4",
-                    "values": [ 1.0, 1.0, 1.0, 1.0 ]
-                }
-            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                    }
+                ]
+            },
             "output": "minecraft:main"
         }
     ]

@@ -64,7 +64,7 @@ public class EffectRendererHelper {
             }
 
             if (activeShader != null) {
-                activeShader.process(Minecraft.getInstance().getMainRenderTarget(), ALLOCATOR, null);
+                activeShader.process(Minecraft.getInstance().getMainRenderTarget(), ALLOCATOR);
             }
         }
     }

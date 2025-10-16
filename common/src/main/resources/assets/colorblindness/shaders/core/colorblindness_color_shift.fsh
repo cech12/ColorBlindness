@@ -4,9 +4,11 @@ uniform sampler2D InSampler;
 
 in vec2 texCoord;
 
-uniform vec3 RedMatrix;
-uniform vec3 GreenMatrix;
-uniform vec3 BlueMatrix;
+layout(std140) uniform ColorblindnessColorShiftConfig {
+    vec3 RedMatrix;
+    vec3 GreenMatrix;
+    vec3 BlueMatrix;
+};
 
 out vec4 fragColor;
 

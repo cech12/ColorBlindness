@@ -14,23 +14,25 @@
                 }
             ],
             "output": "swap",
-            "uniforms": [
-                {
-                    "name": "RedMatrix",
-                    "type": "vec3",
-                    "values": [ 0.625, 0.375, 0.0 ]
-                },
-                {
-                    "name": "GreenMatrix",
-                    "type": "vec3",
-                    "values": [ 0.7, 0.3, 0.0 ]
-                },
-                {
-                    "name": "BlueMatrix",
-                    "type": "vec3",
-                    "values": [ 0.0, 0.3, 0.7 ]
-                }
-            ]
+            "uniforms": {
+                "ColorblindnessColorShiftConfig": [
+                    {
+                        "name": "RedMatrix",
+                        "type": "vec3",
+                        "value": [ 0.625, 0.375, 0.0 ]
+                    },
+                    {
+                        "name": "GreenMatrix",
+                        "type": "vec3",
+                        "value": [ 0.7, 0.3, 0.0 ]
+                    },
+                    {
+                        "name": "BlueMatrix",
+                        "type": "vec3",
+                        "value": [ 0.0, 0.3, 0.7 ]
+                    }
+                ]
+            }
         },
         {
             "vertex_shader": "minecraft:post/blit",
@@ -41,13 +43,15 @@
                     "target": "swap"
                 }
             ],
-            "uniforms": [
-                {
-                    "name": "ColorModulate",
-                    "type": "vec4",
-                    "values": [ 1.0, 1.0, 1.0, 1.0 ]
-                }
-            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                    }
+                ]
+            },
             "output": "minecraft:main"
         }
     ]

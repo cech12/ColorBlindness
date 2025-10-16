@@ -24,7 +24,7 @@ public class ForgeColorBlindnessMod {
     }
 
     public ForgeColorBlindnessMod(FMLJavaModLoadingContext context) {
-        EFFECTS.register(context.getModEventBus());
+        EFFECTS.register(context.getModBusGroup());
     }
 
 }

@@ -14,23 +14,25 @@
                 }
             ],
             "output": "swap",
-            "uniforms": [
-                {
-                    "name": "RedMatrix",
-                    "type": "vec3",
-                    "values": [ 0.618, 0.32, 0.062 ]
-                },
-                {
-                    "name": "GreenMatrix",
-                    "type": "vec3",
-                    "values": [ 0.163, 0.775, 0.062 ]
-                },
-                {
-                    "name": "BlueMatrix",
-                    "type": "vec3",
-                    "values": [ 0.163, 0.320, 0.516 ]
-                }
-            ]
+            "uniforms": {
+                "ColorblindnessColorShiftConfig": [
+                    {
+                        "name": "RedMatrix",
+                        "type": "vec3",
+                        "value": [ 0.618, 0.32, 0.062 ]
+                    },
+                    {
+                        "name": "GreenMatrix",
+                        "type": "vec3",
+                        "value": [ 0.163, 0.775, 0.062 ]
+                    },
+                    {
+                        "name": "BlueMatrix",
+                        "type": "vec3",
+                        "value": [ 0.163, 0.320, 0.516 ]
+                    }
+                ]
+            }
         },
         {
             "vertex_shader": "minecraft:post/blit",
@@ -41,13 +43,15 @@
                     "target": "swap"
                 }
             ],
-            "uniforms": [
-                {
-                    "name": "ColorModulate",
-                    "type": "vec4",
-                    "values": [ 1.0, 1.0, 1.0, 1.0 ]
-                }
-            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                    }
+                ]
+            },
             "output": "minecraft:main"
         }
     ]
