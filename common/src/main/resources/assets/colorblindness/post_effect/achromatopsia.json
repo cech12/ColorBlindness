@@ -4,7 +4,8 @@
     },
     "passes": [
         {
-            "program": "colorblindness:core/colorblindness_color_shift",
+            "vertex_shader": "minecraft:post/blit",
+            "fragment_shader": "colorblindness:core/colorblindness_color_shift",
             "inputs": [
                 {
                     "sampler_name": "In",
@@ -16,24 +17,35 @@
             "uniforms": [
                 {
                     "name": "RedMatrix",
+                    "type": "vec3",
                     "values": [ 0.299, 0.587, 0.114 ]
                 },
                 {
                     "name": "GreenMatrix",
+                    "type": "vec3",
                     "values": [ 0.299, 0.587, 0.114 ]
                 },
                 {
                     "name": "BlueMatrix",
+                    "type": "vec3",
                     "values": [ 0.299, 0.587, 0.114 ]
                 }
             ]
         },
         {
-            "program": "minecraft:post/blit",
+            "vertex_shader": "minecraft:post/blit",
+            "fragment_shader": "minecraft:post/blit",
             "inputs": [
                 {
                     "sampler_name": "In",
                     "target": "swap"
+                }
+            ],
+            "uniforms": [
+                {
+                    "name": "ColorModulate",
+                    "type": "vec4",
+                    "values": [ 1.0, 1.0, 1.0, 1.0 ]
                 }
             ],
             "output": "minecraft:main"

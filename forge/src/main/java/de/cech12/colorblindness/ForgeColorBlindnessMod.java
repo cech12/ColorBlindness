@@ -1,7 +1,6 @@
 package de.cech12.colorblindness;
 
 import net.minecraft.world.effect.MobEffect;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,9 +23,8 @@ public class ForgeColorBlindnessMod {
         Constants.TRITANOPIA = EFFECTS.register("tritanopia", () -> ColorEffect.TRITANOPIA);
     }
 
-    public ForgeColorBlindnessMod() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        EFFECTS.register(modEventBus);
+    public ForgeColorBlindnessMod(FMLJavaModLoadingContext context) {
+        EFFECTS.register(context.getModEventBus());
     }
 
 }

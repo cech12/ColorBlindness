@@ -1,7 +1,7 @@
 package de.cech12.colorblindness.client;
 
 import com.google.gson.JsonSyntaxException;
-import com.mojang.blaze3d.resource.CrossFrameResourcePool;
+import com.mojang.blaze3d.resource.GraphicsResourceAllocator;
 import de.cech12.colorblindness.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -24,7 +24,7 @@ public class EffectRendererHelper {
     private static final ResourceLocation PROTANOPIA = Constants.id("protanopia");
     private static final ResourceLocation TRITANOMALY = Constants.id("tritanomaly");
     private static final ResourceLocation TRITANOPIA = Constants.id("tritanopia");
-    private static final CrossFrameResourcePool RESOURCE_POOL = new CrossFrameResourcePool(3);
+    private static final GraphicsResourceAllocator ALLOCATOR = GraphicsResourceAllocator.UNPOOLED;
 
     private static PostChain achromatomalyShader;
     private static PostChain achromatopsiaShader;
@@ -64,7 +64,7 @@ public class EffectRendererHelper {
             }
 
             if (activeShader != null) {
-                activeShader.process(Minecraft.getInstance().getMainRenderTarget(), RESOURCE_POOL);
+                activeShader.process(Minecraft.getInstance().getMainRenderTarget(), ALLOCATOR, null);
             }
         }
     }
