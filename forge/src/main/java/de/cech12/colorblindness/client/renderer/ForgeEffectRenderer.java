@@ -12,11 +12,11 @@ import net.minecraftforge.fml.common.Mod;
 public class ForgeEffectRenderer {
 
     @SubscribeEvent(priority = Priority.LOWEST)
-    public static void onRender(TickEvent.RenderTickEvent event) {
-        if (event == null || event.phase != TickEvent.Phase.END) {
+    public static void onRender(TickEvent.RenderTickEvent.Post event) {
+        if (event == null) {
             return;
         }
-        EffectRendererHelper.renderColorBlindnessEffect(event.getTimer().getGameTimeDeltaTicks());
+        EffectRendererHelper.renderColorBlindnessEffect(event.timer().getGameTimeDeltaTicks());
     }
 
 }
