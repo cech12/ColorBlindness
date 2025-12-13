@@ -8,7 +8,7 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.LevelTargetBundle;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,14 +16,14 @@ public class EffectRendererHelper {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final ResourceLocation ACHROMATOMALY = Constants.id("achromatomaly");
-    private static final ResourceLocation ACHROMATOPSIA = Constants.id("achromatopsia");
-    private static final ResourceLocation DEUTERANOMALY = Constants.id("deuteranomaly");
-    private static final ResourceLocation DEUTERANOPIA = Constants.id("deuteranopia");
-    private static final ResourceLocation PROTANOMALY = Constants.id("protanomaly");
-    private static final ResourceLocation PROTANOPIA = Constants.id("protanopia");
-    private static final ResourceLocation TRITANOMALY = Constants.id("tritanomaly");
-    private static final ResourceLocation TRITANOPIA = Constants.id("tritanopia");
+    private static final Identifier ACHROMATOMALY = Constants.id("achromatomaly");
+    private static final Identifier ACHROMATOPSIA = Constants.id("achromatopsia");
+    private static final Identifier DEUTERANOMALY = Constants.id("deuteranomaly");
+    private static final Identifier DEUTERANOPIA = Constants.id("deuteranopia");
+    private static final Identifier PROTANOMALY = Constants.id("protanomaly");
+    private static final Identifier PROTANOPIA = Constants.id("protanopia");
+    private static final Identifier TRITANOMALY = Constants.id("tritanomaly");
+    private static final Identifier TRITANOPIA = Constants.id("tritanopia");
     private static final GraphicsResourceAllocator ALLOCATOR = GraphicsResourceAllocator.UNPOOLED;
 
     private static PostChain achromatomalyShader;
@@ -69,7 +69,7 @@ public class EffectRendererHelper {
         }
     }
 
-    private static PostChain createShaderGroup(ResourceLocation location) {
+    private static PostChain createShaderGroup(Identifier location) {
         try {
             return Minecraft.getInstance().getShaderManager().getPostChain(location, LevelTargetBundle.MAIN_TARGETS);
         } catch (JsonSyntaxException jsonsyntaxexception) {
