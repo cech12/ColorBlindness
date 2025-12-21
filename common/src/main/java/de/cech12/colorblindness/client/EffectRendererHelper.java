@@ -56,9 +56,8 @@ public class EffectRendererHelper {
 
     /**
      * Should be called by a render event and renders the effect if it is active.
-     * @param renderTickTime render tick time
      */
-    public static void renderColorBlindnessEffect(float renderTickTime) {
+    public static void renderColorBlindnessEffect() {
         Minecraft mc = Minecraft.getInstance();
         LocalPlayer player = mc.player;
         if (player == null) {
@@ -66,6 +65,8 @@ public class EffectRendererHelper {
         }
 
         makeColorShaders();
+        makeHolders();
+
         fillActiveShaders(player);
 
         if (activeShaders.isEmpty()) {
@@ -144,6 +145,9 @@ public class EffectRendererHelper {
         if (tritanopiaShader == null) {
             tritanopiaShader = createShaderGroup(TRITANOPIA);
         }
+    }
+
+    private static void makeHolders() {
         if (achromatomalyHolder == null) {
             achromatomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get());
         }

@@ -13,6 +13,6 @@ public class MixinGameRenderer {
 
     @Inject(method = "render", at = @At("RETURN"))
     private void renderProxy(DeltaTracker deltaTracker, boolean bl, CallbackInfo ci) {
-        EffectRendererHelper.renderColorBlindnessEffect(deltaTracker.getGameTimeDeltaTicks());
+        EffectRendererHelper.renderColorBlindnessEffect();
     }
 }

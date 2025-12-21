@@ -16,7 +16,7 @@ public class NeoForgeEffectRenderer {
         if (event == null) {
             return;
         }
-        EffectRendererHelper.renderColorBlindnessEffect(event.getPartialTick().getGameTimeDeltaTicks());
+        EffectRendererHelper.renderColorBlindnessEffect();
     }
 
 }
