@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [this versioning scheme](https://gist.github.com/cech12/69319028e88c50349a6b044000a6607b).
 
+## [1.21.6-4.3.0.1] - 2025-12-21
+### Fixed
+- fixed rendering multiple color blindness effects (thanks to Twin-Tailed-Lacewing for the report) #31
+
 ## [1.21.6-4.3.0.0] - 2025-10-16
 ### Changed
 - updated to Minecraft 1.21.6 (Fabric 0.128.2+1.21.6, NeoForge 21.6.20-beta, Forge 56.0.9)
