@@ -18,7 +18,7 @@ public class ColorEffect extends MobEffect {
         super(MobEffectCategory.NEUTRAL, getColorFromRGB(red, green, blue));
     }
 
-    static private int getColorFromRGB(int red, int green, int blue) {
+    private static int getColorFromRGB(int red, int green, int blue) {
         int rgb = Math.max(Math.min(0xFF, red), 0);
         rgb = (rgb << 8) + Math.max(Math.min(0xFF, green), 0);
         rgb = (rgb << 8) + Math.max(Math.min(0xFF, blue), 0);

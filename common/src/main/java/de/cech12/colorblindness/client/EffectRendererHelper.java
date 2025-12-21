@@ -50,6 +50,10 @@ public class EffectRendererHelper {
     private static Holder<MobEffect> tritanomalyHolder;
     private static Holder<MobEffect> tritanopiaHolder;
 
+    private EffectRendererHelper() {
+        // prevent instantiation
+    }
+
     /**
      * Should be called by a render event and renders the effect if it is active.
      * @param renderTickTime render tick time
