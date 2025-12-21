@@ -11,6 +11,10 @@ import net.neoforged.neoforge.client.event.RenderFrameEvent;
 @EventBusSubscriber(Dist.CLIENT)
 public class NeoForgeEffectRenderer {
 
+    private NeoForgeEffectRenderer() {
+        // prevent instantiation
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onRender(RenderFrameEvent.Post event) {
         if (event == null) {
