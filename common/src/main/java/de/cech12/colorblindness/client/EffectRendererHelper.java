@@ -7,10 +7,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.LevelTargetBundle;
 import net.minecraft.client.renderer.PostChain;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EffectRendererHelper {
 
@@ -26,6 +31,8 @@ public class EffectRendererHelper {
     private static final ResourceLocation TRITANOPIA = Constants.id("tritanopia");
     private static final CrossFrameResourcePool RESOURCE_POOL = new CrossFrameResourcePool(3);
 
+    private static final List<PostChain> activeShaders = new ArrayList<>();
+
     private static PostChain achromatomalyShader;
     private static PostChain achromatopsiaShader;
     private static PostChain deuteranomalyShader;
@@ -34,39 +41,69 @@ public class EffectRendererHelper {
     private static PostChain protanopiaShader;
     private static PostChain tritanomalyShader;
     private static PostChain tritanopiaShader;
+    private static Holder<MobEffect> achromatomalyHolder;
+    private static Holder<MobEffect> achromatopsiaHolder;
+    private static Holder<MobEffect> deuteranomalyHolder;
+    private static Holder<MobEffect> deuteranopiaHolder;
+    private static Holder<MobEffect> protanomalyHolder;
+    private static Holder<MobEffect> protanopiaHolder;
+    private static Holder<MobEffect> tritanomalyHolder;
+    private static Holder<MobEffect> tritanopiaHolder;
 
     /**
      * Should be called by a render event and renders the effect if it is active.
      * @param renderTickTime render tick time
      */
     public static void renderColorBlindnessEffect(float renderTickTime) {
-        LocalPlayer player = Minecraft.getInstance().player;
-        if (player != null) {
-            makeColorShaders();
+        Minecraft mc = Minecraft.getInstance();
+        LocalPlayer player = mc.player;
+        if (player == null) {
+            return;
+        }
 
-            PostChain activeShader = null;
-            if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get()))) {
-                activeShader = achromatomalyShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOPSIA.get()))) {
-                activeShader = achromatopsiaShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOMALY.get()))) {
-                activeShader = deuteranomalyShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOPIA.get()))) {
-                activeShader = deuteranopiaShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOMALY.get()))) {
-                activeShader = protanomalyShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOPIA.get()))) {
-                activeShader = protanopiaShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOMALY.get()))) {
-                activeShader = tritanomalyShader;
-            } else if (player.hasEffect(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOPIA.get()))) {
-                activeShader = tritanopiaShader;
-            }
+        makeColorShaders();
+        fillActiveShaders(player);
 
-            if (activeShader != null) {
-                activeShader.process(Minecraft.getInstance().getMainRenderTarget(), RESOURCE_POOL);
+        if (activeShaders.isEmpty()) {
+            return;
+        }
+
+        for (PostChain shader : activeShaders) {
+            if (shader != null) {
+                shader.process(Minecraft.getInstance().getMainRenderTarget(), RESOURCE_POOL);
             }
         }
+    }
+
+    private static void fillActiveShaders(LocalPlayer player) {
+        activeShaders.clear();
+        if (hasEffect(player, achromatopsiaHolder)) {
+            activeShaders.add(achromatopsiaShader);
+            return;
+        }
+
+        if (hasEffect(player, achromatomalyHolder)) {
+            activeShaders.add(achromatomalyShader);
+        }
+        if (hasEffect(player, tritanopiaHolder)) {
+            activeShaders.add(tritanopiaShader);
+        } else if (hasEffect(player, tritanomalyHolder)) {
+            activeShaders.add(tritanomalyShader);
+        }
+        if (hasEffect(player, deuteranopiaHolder)) {
+            activeShaders.add(deuteranopiaShader);
+        } else if (hasEffect(player, deuteranomalyHolder)) {
+            activeShaders.add(deuteranomalyShader);
+        }
+        if (hasEffect(player, protanopiaHolder)) {
+            activeShaders.add(protanopiaShader);
+        } else if (hasEffect(player, protanomalyHolder)) {
+            activeShaders.add(protanomalyShader);
+        }
+    }
+
+    private static boolean hasEffect(LocalPlayer player, Holder<MobEffect> effectHolder) {
+        return effectHolder != null && player.hasEffect(effectHolder);
     }
 
     private static PostChain createShaderGroup(ResourceLocation location) {
@@ -102,6 +139,30 @@ public class EffectRendererHelper {
         }
         if (tritanopiaShader == null) {
             tritanopiaShader = createShaderGroup(TRITANOPIA);
+        }
+        if (achromatomalyHolder == null) {
+            achromatomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get());
+        }
+        if (achromatopsiaHolder == null) {
+            achromatopsiaHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOPSIA.get());
+        }
+        if (deuteranomalyHolder == null) {
+            deuteranomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOMALY.get());
+        }
+        if (deuteranopiaHolder == null) {
+            deuteranopiaHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.DEUTERANOPIA.get());
+        }
+        if (protanomalyHolder == null) {
+            protanomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOMALY.get());
+        }
+        if (protanopiaHolder == null) {
+            protanopiaHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.PROTANOPIA.get());
+        }
+        if (tritanomalyHolder == null) {
+            tritanomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOMALY.get());
+        }
+        if (tritanopiaHolder == null) {
+            tritanopiaHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.TRITANOPIA.get());
         }
     }
 
