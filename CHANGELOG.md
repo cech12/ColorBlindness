@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [this versioning scheme](https://gist.github.com/cech12/69319028e88c50349a6b044000a6607b).
 
+## [1.21-4.0.0.2] - 2025-12-27
+### Fixed
+- fixed rendering multiple color blindness effects (thanks to Twin-Tailed-Lacewing for the report) #31
+
 ## [1.21-4.0.0.1] - 2025-01-14
 ### Fixed
 - shader was incompatible with macOS (thanks to sam-kirby for the report) #23
