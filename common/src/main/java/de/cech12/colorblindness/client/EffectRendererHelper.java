@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class EffectRendererHelper {
@@ -50,6 +51,10 @@ public class EffectRendererHelper {
     private static Holder<MobEffect> tritanomalyHolder;
     private static Holder<MobEffect> tritanopiaHolder;
 
+    private EffectRendererHelper() {
+        // prevent instantiation
+    }
+
     /**
      * Should be called by a render event and renders the effect if it is active.
      * @param renderTickTime render tick time
@@ -61,17 +66,20 @@ public class EffectRendererHelper {
             return;
         }
 
-        makeColorShaders();
         fillActiveShaders(player);
 
         if (activeShaders.isEmpty()) {
             return;
         }
 
-        for (PostChain shader : activeShaders) {
-            if (shader != null) {
-                shader.process(mc.getMainRenderTarget(), ALLOCATOR);
+        try {
+            for (PostChain shader : activeShaders) {
+                if (shader != null) {
+                    shader.process(mc.getMainRenderTarget(), ALLOCATOR);
+                }
             }
+        } catch (ConcurrentModificationException ex) {
+            Constants.LOG.info("ConcurrentModificationException was thrown during iterating the colorblindness shader list. Skip rendering.", ex);
         }
     }
 
@@ -115,6 +123,23 @@ public class EffectRendererHelper {
         return null;
     }
 
+    public static void unloadShaders() {
+        activeShaders.clear();
+        achromatomalyShader = null;
+        achromatopsiaShader = null;
+        deuteranomalyShader = null;
+        deuteranopiaShader = null;
+        protanomalyShader = null;
+        protanopiaShader = null;
+        tritanomalyShader = null;
+        tritanopiaShader = null;
+    }
+
+    public static void resetShaders() {
+        makeColorShaders();
+        makeHolders();
+    }
+
     private static void makeColorShaders() {
         if (achromatomalyShader == null) {
             achromatomalyShader = createShaderGroup(ACHROMATOMALY);
@@ -140,6 +165,9 @@ public class EffectRendererHelper {
         if (tritanopiaShader == null) {
             tritanopiaShader = createShaderGroup(TRITANOPIA);
         }
+    }
+
+    private static void makeHolders() {
         if (achromatomalyHolder == null) {
             achromatomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get());
         }
