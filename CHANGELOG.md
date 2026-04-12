@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [this versioning scheme](https://gist.github.com/cech12/69319028e88c50349a6b044000a6607b).
 
+## [26.1-5.0.0.1] - 2026-04-14
+### Fixed
+- fixed game crash when reloading resources (F3+T) (thanks to ContinuedOak for the report) #34
+
 ## [26.1-5.0.0.0] - 2026-03-26
 ### Changed
 - updated to Minecraft 26.1 (Fabric 0.144.0+26.1, NeoForge 26.1.0.5-beta, Forge 62.0.3)
