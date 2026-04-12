@@ -64,9 +64,6 @@ public class EffectRendererHelper {
             return;
         }
 
-        makeColorShaders();
-        makeHolders();
-
         fillActiveShaders(player);
 
         if (activeShaders.isEmpty()) {
@@ -118,6 +115,20 @@ public class EffectRendererHelper {
             LOGGER.warn("Failed to parse shader: {}", location, jsonsyntaxexception);
         }
         return null;
+    }
+
+    public static void resetShaders() {
+        activeShaders.clear();
+        achromatomalyShader = null;
+        achromatopsiaShader = null;
+        deuteranomalyShader = null;
+        deuteranopiaShader = null;
+        protanomalyShader = null;
+        protanopiaShader = null;
+        tritanomalyShader = null;
+        tritanopiaShader = null;
+        makeColorShaders();
+        makeHolders();
     }
 
     private static void makeColorShaders() {
