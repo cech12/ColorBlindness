@@ -50,6 +50,10 @@ public class EffectRendererHelper {
     private static Holder<MobEffect> tritanomalyHolder;
     private static Holder<MobEffect> tritanopiaHolder;
 
+    private EffectRendererHelper() {
+        // prevent instantiation
+    }
+
     /**
      * Should be called by a render event and renders the effect if it is active.
      * @param renderTickTime render tick time
@@ -61,7 +65,6 @@ public class EffectRendererHelper {
             return;
         }
 
-        makeColorShaders();
         fillActiveShaders(player);
 
         if (activeShaders.isEmpty()) {
@@ -70,7 +73,13 @@ public class EffectRendererHelper {
 
         for (PostChain shader : activeShaders) {
             if (shader != null) {
-                shader.process(mc.getMainRenderTarget(), ALLOCATOR);
+                try {
+                    shader.process(mc.getMainRenderTarget(), ALLOCATOR);
+                } catch (IllegalStateException ex) {
+                    //Fabric Resource reloading does not work as I think between 1.21.6 and 1.21.8, so this is a fallback behavior
+                    resetShaders();
+                    break;
+                }
             }
         }
     }
@@ -115,6 +124,20 @@ public class EffectRendererHelper {
         return null;
     }
 
+    public static void resetShaders() {
+        activeShaders.clear();
+        achromatomalyShader = null;
+        achromatopsiaShader = null;
+        deuteranomalyShader = null;
+        deuteranopiaShader = null;
+        protanomalyShader = null;
+        protanopiaShader = null;
+        tritanomalyShader = null;
+        tritanopiaShader = null;
+        makeColorShaders();
+        makeHolders();
+    }
+
     private static void makeColorShaders() {
         if (achromatomalyShader == null) {
             achromatomalyShader = createShaderGroup(ACHROMATOMALY);
@@ -140,6 +163,9 @@ public class EffectRendererHelper {
         if (tritanopiaShader == null) {
             tritanopiaShader = createShaderGroup(TRITANOPIA);
         }
+    }
+
+    private static void makeHolders() {
         if (achromatomalyHolder == null) {
             achromatomalyHolder = BuiltInRegistries.MOB_EFFECT.wrapAsHolder(Constants.ACHROMATOMALY.get());
         }
