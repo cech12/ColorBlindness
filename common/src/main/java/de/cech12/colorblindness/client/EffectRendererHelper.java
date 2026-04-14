@@ -15,6 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 public class EffectRendererHelper {
@@ -71,11 +72,15 @@ public class EffectRendererHelper {
             return;
         }
 
-        for (PostChain shader : activeShaders) {
-            if (shader != null) {
-                shader.process(mc.getMainRenderTarget(), RESOURCE_POOL);
+        try {
+            for (PostChain shader : activeShaders) {
+                if (shader != null) {
+                    shader.process(mc.getMainRenderTarget(), RESOURCE_POOL);
+                }
             }
-        }
+        } catch (ConcurrentModificationException ex) {
+            Constants.LOG.info("ConcurrentModificationException was thrown during iterating the colorblindness shader list. Skip rendering.", ex);
+            }
     }
 
     private static void fillActiveShaders(LocalPlayer player) {
@@ -118,7 +123,7 @@ public class EffectRendererHelper {
         return null;
     }
 
-    public static void resetShaders() {
+    public static void unloadShaders() {
         activeShaders.clear();
         achromatomalyShader = null;
         achromatopsiaShader = null;
@@ -128,6 +133,9 @@ public class EffectRendererHelper {
         protanopiaShader = null;
         tritanomalyShader = null;
         tritanopiaShader = null;
+    }
+
+    public static void resetShaders() {
         makeColorShaders();
         makeHolders();
     }
