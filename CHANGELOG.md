@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [this versioning scheme](https://gist.github.com/cech12/69319028e88c50349a6b044000a6607b).
 
+## [1.21.6-4.3.0.3] - 2026-04-14
+### Changed
+- enhanced resource reloading to work better (F3+T) #34
+
 ## [1.21.6-4.3.0.2] - 2026-04-14
 ### Fixed
 - fixed game crash when reloading resources (F3+T) (thanks to ContinuedOak for the report) #34
