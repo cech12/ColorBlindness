@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "de.cech12.colorblindness.FabricColorBlindnessMod"
+    ],
+    "client": [
+      "de.cech12.colorblindness.FabricColorBlindnessClientMod"
     ]
   },
   "mixins": [
