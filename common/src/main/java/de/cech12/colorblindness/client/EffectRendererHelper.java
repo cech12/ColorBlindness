@@ -74,7 +74,7 @@ public class EffectRendererHelper {
         try {
             for (PostChain shader : activeShaders) {
                 if (shader != null) {
-                    shader.process(mc.getMainRenderTarget(), ALLOCATOR);
+                    shader.process(mc.gameRenderer.mainRenderTarget(), ALLOCATOR);
                 }
             }
         } catch (ConcurrentModificationException ex) {
