@@ -1,7 +1,6 @@
 package de.cech12.colorblindness.mixin;
 
 import de.cech12.colorblindness.client.EffectRendererHelper;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinGameRenderer {
 
     @Inject(method = "render", at = @At("RETURN"))
-    private void renderProxy(DeltaTracker deltaTracker, boolean bl, CallbackInfo ci) {
+    private void renderProxy(CallbackInfo ci) {
         EffectRendererHelper.renderColorBlindnessEffect();
     }
 }
